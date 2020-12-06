@@ -1,5 +1,7 @@
 <br>
 <a href="<?= base_url('index.php/pegawai/add_pegawai') ?>" class="btn btn-primary">Tambah Data Pegawai</a><br><br>
+<?= $this->session->flashdata('notifikasi'); ?>
+<!-- peganti echo <#= -->
 <table class="table">
     <thead>
         <tr>
@@ -14,6 +16,7 @@
     <tbody>
         <?php
         foreach ($DataPegawai as $resultPegawai) {
+            $nip = $resultPegawai['Nip'];
         ?>
             <tr>
                 <td><?= $resultPegawai['Nip'] ?></td>
@@ -21,7 +24,9 @@
                 <td><?= $resultPegawai['TempatLahir'] ?></td>
                 <td><?= $resultPegawai['TanggalLahir'] ?></td>
                 <td><?= $resultPegawai['Alamat'] ?></td>
-                <td>yes</td>
+                <td>
+                    <a href="<?= base_url("index.php/pegawai/edit_pegawai/$nip") ?>" class="btn btn-warning">Edit</a>
+                    <a href="<?= base_url("index.php/proses_pegawai/hapus_pegawai/$nip") ?>" onclick="return confirm('Anda Yakin ingin menghapus Data?')" class="btn btn-danger">Hapus</a></td>
             </tr>
         <?php } ?>
     </tbody>

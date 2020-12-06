@@ -26,4 +26,14 @@ class Pegawai extends CI_Controller
         $this->load->view('add_pegawai');
         $this->load->view('template/footer');
     }
+
+    function edit_pegawai($nip)
+    {
+        $data = array(
+            'tampilpegawai' => $this->Pegawai_m->get_data_edit($nip),
+        );
+        $this->load->view('template/header', $data);
+        $this->load->view('edit_pegawai');
+        $this->load->view('template/footer');
+    }
 }
