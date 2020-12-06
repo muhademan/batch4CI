@@ -1,5 +1,5 @@
 <br>
-<form action="">
+<form action="<?= base_url('index.php/proses_pegawai/simpan_pegawai') ?>" method="POST">
     <div class="form-group">
         <label>Nip</label>
         <input type="text" class="form-control" required placeholder="Masukan NIP Pegawai" name="nip">

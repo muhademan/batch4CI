@@ -15,5 +15,12 @@ class Proses_pegawai extends CI_Controller
         $tanggallahir = $this->input->post('tanggallahir');
         $tempatlahir = $this->input->post('tempatlahir');
         $alamat = $this->input->post('alamat');
+        $simpan = $this->Pegawai_m->save_pegawai($nip, $nama, $tempatlahir, $tanggallahir, $alamat);
+        if ($simpan) {
+            $this->session->set_flashdata('');
+            redirect(base_url());
+        } else {
+            redirect(base_url('index.php/pegawai/add_pegawai')); //index.php/controler/namamethod
+        }
     }
 }
