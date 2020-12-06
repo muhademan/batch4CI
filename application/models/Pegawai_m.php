@@ -6,4 +6,7 @@ class Pegawai_m extends CI_Model
         $result = $this->db->get('tbpegawai')->result_array();
         return $result;
     }
+    function save_pegawai()
+    {
+    }
 }
