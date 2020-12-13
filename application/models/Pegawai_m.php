@@ -20,13 +20,13 @@ class Pegawai_m extends CI_Model
     }
     function delete_pegawai($nip)
     {
-        $this->db->where('Nip', $nip);
+        $this->db->where('md5(Nip)', $nip);
         $result = $this->db->delete('tbpegawai');
         return $result;
     }
     function get_data_edit($nip)
     {
-        $this->db->where('Nip', $nip);
+        $this->db->where('md5(Nip)', $nip);
         $result = $this->db->get('tbpegawai')->row_array(); //mengambil hanya satu baris pake row_array()
         return $result;
     }

@@ -3,9 +3,8 @@
 <a href="<?= base_url('index.php/login/logout') ?>" class="btn btn-danger">Logout</a>
 <br><br>
 <?= $this->session->flashdata('notifikasi');  ?>
-<?= $this->session->userdata('level'); ?>
 <!-- peganti echo <#= -->
-<table class="table">
+<table class="table" id="example">
     <thead>
         <tr>
             <th>Nip</th>
@@ -19,7 +18,7 @@
     <tbody>
         <?php
         foreach ($DataPegawai as $resultPegawai) {
-            $nip = $resultPegawai['Nip'];
+            $nip = md5($resultPegawai['Nip']);
         ?>
             <tr>
                 <td><?= $resultPegawai['Nip'] ?></td>

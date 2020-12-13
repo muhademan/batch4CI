@@ -3,7 +3,7 @@
 <a href="<?= base_url('index.php/login/logout') ?>" class="btn btn-danger">Logout</a>
 <br><br>
 <!-- peganti echo <#= -->
-<table class="table">
+<table class="table" id="example">
     <thead>
         <tr>
             <th>Nip</th>
