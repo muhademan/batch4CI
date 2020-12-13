@@ -36,4 +36,18 @@ class Pegawai_m extends CI_Model
         $result = $this->db->get('tbpegawai')->num_rows(); //mengambil hanya satu baris pake row_array()
         return $result;
     }
+
+    function update_pegawai($nip, $nama, $tempatlahir, $tanggallahir, $alamat)
+    {
+        $data = array(
+            'Nama' => $nama,
+            'TempatLahir' => $tempatlahir,
+            'TanggalLahir' => $tanggallahir,
+            'Alamat' => $alamat
+        );
+        $this->db->where('Nip', $nip);
+        $result = $this->db->update('tbpegawai', $data);
+        $result = $this->db->get('tbpegawai')->num_rows(); //mengambil hanya satu baris pake row_array()
+        return $result;
+    }
 }

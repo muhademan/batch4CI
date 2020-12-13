@@ -31,6 +31,24 @@ class Proses_pegawai extends CI_Controller
         }
     }
 
+    function edit_pegawai()
+    {
+        $nip = $this->input->post('nip');
+        $nama = $this->input->post('nama');
+        $tanggallahir = $this->input->post('tanggallahir');
+        $tempatlahir = $this->input->post('tempatlahir');
+        $alamat = $this->input->post('alamat');
+
+        $update = $this->Pegawai_m->update_pegawai($nip, $nama, $tempatlahir, $tanggallahir, $alamat);
+        if ($update) {
+            $this->session->set_flashdata('notifikasi', '<div class="alert alert-primary" role="alert">Data Berhasil Diupdate</div>');
+            redirect(base_url('index.php/pegawai/beranda'));
+        } else {
+            $this->session->set_flashdata('notifikasi', 'Data gagal diupdate');
+            redirect(base_url('index.php/pegawai/beranda')); //index.php/controler/namamethod
+        }
+    }
+
     function hapus_pegawai($nip)
     {
         $hapus = $this->Pegawai_m->delete_pegawai($nip);

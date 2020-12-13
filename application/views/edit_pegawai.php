@@ -1,5 +1,5 @@
 <br>
-<form action="" method="POST">
+<form action="<?= base_url('index.php/proses_pegawai/edit_pegawai') ?>" method="POST">
     <div class="form-group">
         <label>Nip</label>
         <!-- $tampilpegawai dari controller pegawai php -->
