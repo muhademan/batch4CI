@@ -11,9 +11,20 @@
                         <li class="nav-item active">
                             <a class="nav-link" aria-current="page" href="#">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('index.php/login/login_v') ?>">Login</a>
-                        </li>
+                        <?php
+                        if (empty($this->session->userdata('username'))) {
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('index.php/login/login_v') ?>">Login</a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('index.php/pegawai/beranda') ?>">Halaman Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?= base_url('index.php/login/logout') ?>">Logout</a>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

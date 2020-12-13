@@ -1,6 +1,9 @@
 <br>
-<a href="<?= base_url('index.php/pegawai/add_pegawai') ?>" class="btn btn-primary">Tambah Data Pegawai</a><br><br>
+<a href="<?= base_url('index.php/pegawai/add_pegawai') ?>" class="btn btn-primary">Tambah Data Pegawai</a>
 <?= $this->session->flashdata('notifikasi'); ?>
+<a href="<?= base_url('index.php/login/logout') ?>" class="btn btn-danger">Logout</a>
+<br><br>
+<?= $this->session->flashdata('notifikasi');  ?>
 <!-- peganti echo <#= -->
 <table class="table">
     <thead>

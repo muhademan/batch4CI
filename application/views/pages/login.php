@@ -1,4 +1,5 @@
 <h2>Halaman Login</h2>
+<?= $this->session->flashdata('notifikasi'); ?>
 <form method="POST" action="<?= base_url("index.php/login/loginproses") ?>">
     <div class="form-group">
         <label for="username">Username</label>

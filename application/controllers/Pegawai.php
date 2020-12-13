@@ -5,6 +5,10 @@ class Pegawai extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if (empty($this->session->userdata('username'))) {
+            $this->session->set_flashdata('notifikasi', '<div class="alert alert-danger" role="alert">Akses ditolak !! silahkan login terlebih dahulu </div>');
+            redirect(base_url('index.php/login/login_v'));
+        }
         $this->load->model('Pegawai_m');
     }
 
