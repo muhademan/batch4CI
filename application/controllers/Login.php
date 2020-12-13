@@ -26,11 +26,12 @@ class Login extends CI_Controller
         $username = $this->input->post('username');
         $password = md5($this->input->post('password'));
         $ceklogin = $this->Login_m->ceklogin($username, $password);
-        if ($ceklogin > 0) {
+        if ($ceklogin->num_rows() > 0) {
+            $resultuser = $ceklogin->row_array();
             // fungsi set session
             $data = array(
                 'username' => $username,
-                'level' => 'admin'
+                'level' => $resultuser['level']
             );
             $this->session->set_userdata($data);
             redirect(base_url('index.php/pegawai/beranda'));

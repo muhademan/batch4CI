@@ -20,8 +20,20 @@ class Pegawai extends CI_Controller
         );
 
         $this->load->view('template/header', $data);
-        $this->load->view('tampil_data_pegawai');
+        if ($this->session->userdata('level') == 'Super Admin') {
+            $this->load->view('tampil_data_pegawai');
+        } else {
+            $this->load->view('tampil_pegawai');
+        }
         $this->load->view('template/footer');
+    }
+
+    function downloadexcelpegawai()
+    {
+        $data = array(
+            'DataPegawai' => $this->Pegawai_m->get_data_pegawai(),
+        );
+        $this->load->view('downloadexcelpegawai', $data);
     }
 
     function add_pegawai()
